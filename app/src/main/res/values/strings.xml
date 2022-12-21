@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BIN App</string>
-    <string name="label_scheme">SCHEME / NETWORK</string>
+    <string name="label_scheme">SCHEME</string>
     <string name="hint_bin">Enter BIN</string>
     <string name="label_type">TYPE</string>
     <string name="label_bank">BANK</string>
