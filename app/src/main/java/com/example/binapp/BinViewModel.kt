@@ -1,5 +1,6 @@
 package com.example.binapp
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,14 +35,14 @@ data class Bin(
     val brand: String,
     val prepaid: Boolean,
     val country: Country,
-    val bank: Bank
+    val bank: Bank?
 )
 
 class BinViewModel: ViewModel() {
     private var _bin: MutableLiveData<Bin> = MutableLiveData()
     val bin: LiveData<Bin> get() = _bin
 
-    init {
+    /*init {
         _bin.value = Bin(
             number = Number(
                 length = 16,
@@ -66,5 +67,15 @@ class BinViewModel: ViewModel() {
                 phone = "0860 11 11 77 OR 0860 102 499"
             )
         )
+    }
+     */
+
+    suspend fun updateBin(binId: Int) {
+        val result = RetrofitInstance.api.getBin(binId)
+
+        if (result.code() != 404) {
+            _bin.postValue(result.body())
+        }
+//        Log.d("GET_REQ", result.body().toString())
     }
 }

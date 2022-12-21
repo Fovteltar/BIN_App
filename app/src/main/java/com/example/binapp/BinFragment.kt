@@ -6,10 +6,13 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.binapp.databinding.FragmentBinBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BinFragment: Fragment() {
     private var _binding: FragmentBinBinding? = null
@@ -32,9 +35,13 @@ class BinFragment: Fragment() {
         binding.editTextBin.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
-            override fun onTextChanged(string: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (string?.length == BIN_AMOUNT) {
-                    Toast.makeText(context, "6 chars", Toast.LENGTH_SHORT).show()
+            override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (charSequence?.length == BIN_AMOUNT) {
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
+                            binViewModel.updateBin(charSequence.toString().toInt())
+                        }
+                    }
                 }
             }
         })
@@ -45,9 +52,9 @@ class BinFragment: Fragment() {
                 binding.apply {
                     textScheme.text = bin.scheme.replaceFirstChar{ it.uppercaseChar() }
                     textType.text = bin.type.replaceFirstChar{ it.uppercaseChar() }
-                    textBank.text = bin.bank.name
-                    textLink.text = bin.bank.url
-                    textPhone.text = bin.bank.phone
+                    textBank.text = bin.bank?.name ?: ""
+                    textLink.text = bin.bank?.url ?: ""
+                    textPhone.text = bin.bank?.phone ?: ""
                     textBrand.text = bin.brand
                     textPrepaid.text = if(bin.prepaid) "Yes" else "No"
                     textLength.text = bin.number.length.toString()
