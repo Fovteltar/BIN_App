@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/bin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_bin"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/labelScheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/label_scheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bin"
+        style="@style/label_style" />
+
+    <TextView
+        android:id="@+id/textScheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelScheme"
+        tools:text="Visa"
+        style="@style/text_style" />
+
+    <TextView
+        android:id="@+id/labelType"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/label_type"
+        app:layout_constraintStart_toEndOf="@+id/labelScheme"
+        app:layout_constraintTop_toBottomOf="@+id/bin" />
+
+    <TextView
+        android:id="@+id/textType"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textScheme"
+        app:layout_constraintTop_toBottomOf="@+id/labelType"
+        tools:text="Credit" />
+
+    <TextView
+        android:id="@+id/labelBank"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/label_bank"
+        app:layout_constraintStart_toEndOf="@+id/labelType"
+        app:layout_constraintTop_toBottomOf="@+id/bin" />
+
+    <TextView
+        android:id="@+id/textBank"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintTop_toBottomOf="@+id/labelBank"
+        tools:text="BIDVEST BANK" />
+
+    <TextView
+        android:id="@+id/textLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/color_link"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintTop_toBottomOf="@+id/textBank"
+        tools:text="www.bidvestbank.co.za" />
+
+    <TextView
+        android:id="@+id/textPhone"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintTop_toBottomOf="@+id/textLink"
+        tools:text="0860 11 11 77 OR 0860 102 499" />
+
+    <TextView
+        android:id="@+id/labelBrand"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/label_brand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textScheme" />
+
+    <TextView
+        android:id="@+id/textBrand"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelBrand"
+        tools:text="Business" />
+
+    <TextView
+        android:id="@+id/labelPrepaid"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/label_prepaid"
+        app:layout_constraintStart_toEndOf="@+id/labelBrand"
+        app:layout_constraintTop_toBottomOf="@+id/textType" />
+
+    <TextView
+        android:id="@+id/textPrepaid"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textBrand"
+        app:layout_constraintTop_toBottomOf="@+id/labelPrepaid"
+        tools:text="No" />
+
+    <TextView
+        android:id="@+id/labelCardNumber"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/label_card_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBrand" />
+
+    <TextView
+        android:id="@+id/labelLength"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_length"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelCardNumber" />
+
+    <TextView
+        android:id="@+id/labelLuhn"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_luhn"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/labelLength"
+        app:layout_constraintTop_toBottomOf="@+id/labelCardNumber" />
+
+    <TextView
+        android:id="@+id/textLength"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelLength"
+        tools:text="16" />
+
+    <TextView
+        android:id="@+id/textLuhn"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textLength"
+        app:layout_constraintTop_toBottomOf="@+id/labelLuhn"
+        tools:text="Yes" />
+
+    <TextView
+        android:id="@+id/labelCountry"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/label_country"
+        app:layout_constraintStart_toEndOf="@+id/labelCardNumber"
+        app:layout_constraintTop_toBottomOf="@+id/textPrepaid" />
+
+    <TextView
+        android:id="@+id/textCountry"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/labelLuhn"
+        app:layout_constraintTop_toBottomOf="@+id/labelCountry"
+        tools:text="🇿🇦 South Africa" />
+
+    <TextView
+        android:id="@+id/labelLatidude"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/label_latitude"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/textLuhn"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+    <TextView
+        android:id="@+id/textLatitude"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/labelLatidude"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry"
+        tools:text="-29" />
+
+    <TextView
+        android:id="@+id/labelLongitude"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/label_longitude"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/textLatitude"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+    <TextView
+        android:id="@+id/textLongitude"
+        style="@style/text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/labelLongitude"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry"
+        tools:text="24" />
+
+    <TextView
+        android:id="@+id/labelGeoClose"
+        style="@style/label_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/label_geo_close"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/textLongitude"
+        app:layout_constraintTop_toBottomOf="@+id/textCountry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BIN App</string>
+    <string name="label_scheme">SCHEME / NETWORK</string>
+    <string name="hint_bin">Enter BIN</string>
+    <string name="label_type">TYPE</string>
+    <string name="label_bank">BANK</string>
+    <string name="label_brand">BRAND</string>
+    <string name="label_prepaid">PREPAID</string>
+    <string name="label_card_number">CARD NUMBER</string>
+    <string name="label_length">LENGTH</string>
+    <string name="label_luhn">LUHN</string>
+    <string name="label_country">COUNTRY</string>
+    <string name="label_latitude">(latitude:</string>
+    <string name="label_longitude">, longitude:</string>
+    <string name="label_geo_close">)</string>
+</resources>
