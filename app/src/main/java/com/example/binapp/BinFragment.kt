@@ -1,5 +1,7 @@
 package com.example.binapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -32,19 +34,47 @@ class BinFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.editTextBin.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun afterTextChanged(p0: Editable?) {}
-            override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (charSequence?.length == BIN_AMOUNT) {
-                    lifecycleScope.launch {
-                        withContext(Dispatchers.IO) {
-                            binViewModel.updateBin(charSequence.toString().toInt())
+        binding.apply {
+            editTextBin.addTextChangedListener(object: TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+                override fun afterTextChanged(p0: Editable?) {}
+                override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if (charSequence?.length == BIN_AMOUNT) {
+                        lifecycleScope.launch {
+                            withContext(Dispatchers.IO) {
+                                binViewModel.updateBin(charSequence.toString().toInt())
+                            }
                         }
                     }
                 }
+            })
+            textLink.setOnClickListener {
+                val text = textLink.text
+                if (text.isNotEmpty()) {
+                    val link = "http://$text"
+                    val browserIntent  = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+                    startActivity(browserIntent)
+                }
             }
-        })
+            textPhone.setOnClickListener {
+                val text = textPhone.text
+                if (text.isNotEmpty()) {
+                    val phoneNumber = "tel:$text"
+                    val dialerIntent  = Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber))
+                    startActivity(dialerIntent)
+                }
+            }
+            textCountry.setOnClickListener {
+                val latitude = textLatitude.text
+                val longitude = textLongitude.text
+                if (latitude.isNotEmpty() && longitude.isNotEmpty()) {
+                    val coordinates = "geo:$latitude,$longitude"
+                    val googleMapsIntent  = Intent(Intent.ACTION_VIEW, Uri.parse(coordinates))
+                    googleMapsIntent.setPackage("com.google.android.apps.maps")
+                    startActivity(googleMapsIntent)
+                }
+            }
+        }
 
         binViewModel.bin.observe(viewLifecycleOwner) {
             val bin = binViewModel.bin.value
