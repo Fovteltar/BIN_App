@@ -76,22 +76,31 @@ class BinFragment: Fragment() {
             }
         }
 
-        binViewModel.bin.observe(viewLifecycleOwner) {
-            val bin = binViewModel.bin.value
+        binViewModel.bin.observe(viewLifecycleOwner) { bin ->
             if (bin != null) {
                 binding.apply {
-                    textScheme.text = bin.scheme.replaceFirstChar{ it.uppercaseChar() }
-                    textType.text = bin.type.replaceFirstChar{ it.uppercaseChar() }
+                    textScheme.text = bin.scheme?.replaceFirstChar{ it.uppercaseChar() } ?: ""
+                    textType.text = bin.type?.replaceFirstChar{ it.uppercaseChar() } ?: ""
                     textBank.text = bin.bank?.name ?: ""
                     textLink.text = bin.bank?.url ?: ""
                     textPhone.text = bin.bank?.phone ?: ""
-                    textBrand.text = bin.brand
-                    textPrepaid.text = if(bin.prepaid) "Yes" else "No"
-                    textLength.text = bin.number.length.toString()
-                    textLuhn.text = if(bin.number.luhn) "Yes" else "No"
-                    textCountry.text = bin.country.emoji + bin.country.name
-                    textLatitude.text = bin.country.latitude.toString()
-                    textLongitude.text = bin.country.longitude.toString()
+                    textBrand.text = bin.brand?.toString() ?: ""
+                    textPrepaid.text =
+                        if (bin.prepaid != null)
+                            (if(bin.prepaid) "Yes" else "No")
+                        else ""
+                    textLength.text = bin.number?.length.toString() ?: ""
+                    textLuhn.text =
+                    if (bin.number != null)
+                        if(bin.number.luhn) "Yes" else "No"
+                    else ""
+
+                    textCountry.text =
+                        if (bin.country != null)
+                            (bin.country.emoji + bin.country.name)
+                        else ""
+                    textLatitude.text = bin.country?.latitude.toString() ?: ""
+                    textLongitude.text = bin.country?.longitude.toString() ?: ""
                 }
             }
         }

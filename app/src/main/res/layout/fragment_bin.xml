@@ -102,7 +102,7 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.568"
-        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintStart_toEndOf="@+id/labelType"
         app:layout_constraintTop_toBottomOf="@+id/textLink"
         tools:text="0860 11 11 77 OR 0860 102 499" />
 
@@ -116,7 +116,7 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.568"
-        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintStart_toEndOf="@+id/labelType"
         app:layout_constraintTop_toBottomOf="@+id/textBank"
         tools:text="www.bidvestbank.co.za" />
 
@@ -130,7 +130,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.568"
-        app:layout_constraintStart_toEndOf="@+id/textType"
+        app:layout_constraintStart_toEndOf="@+id/labelType"
         app:layout_constraintTop_toBottomOf="@+id/labelBank"
         tools:text="BIDVEST BANK" />
 

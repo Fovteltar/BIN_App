@@ -12,10 +12,10 @@ interface BinApi {
 }
 
 object RetrofitInstance {
-    val baseURL = "https://lookup.binlist.net/"
+    private const val BASE_URL = "https://lookup.binlist.net/"
 
     val api: BinApi by lazy {
-        Retrofit.Builder().baseUrl(baseURL)
+        Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(BinApi::class.java)
