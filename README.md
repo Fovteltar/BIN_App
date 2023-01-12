@@ -21,6 +21,6 @@ you can easily navigate e.g. to google map, dialer or browser.
 
 Get app in 3 steps:
 
-- Open app/build/outputs/apk/debug folder
-- Download app-debug.apk
+- Open apk folder
+- Download BIN_App.apk
 - Install apk
